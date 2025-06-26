@@ -14,13 +14,13 @@ const Menu = () => {
     <Navbar expand="lg" className="bg-white">
       <Container>
         <Navbar.Brand href="/"><Logo/></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav ms-auto" className="ms-auto" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/home" className="menu">Domů</Nav.Link>
             <Nav.Link href="/aboutus" className="menu">O nás</Nav.Link>
              <Nav.Link href="/chatbot" className="menu">Chatbot</Nav.Link>
-             <Nav.Link href="/pricing" className="menu">blablabla</Nav.Link>
+             <Nav.Link href="/pricing" className="menu">Ceník</Nav.Link>
             <NavDropdown   title={
     <span style={{ color: '#038B6B', fontSize: '1.1rem' }}>
       Přihlásit se
