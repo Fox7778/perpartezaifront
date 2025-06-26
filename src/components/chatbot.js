@@ -1,87 +1,55 @@
-import React, { useState } from 'react';
-import axios from 'axios';  
+import React, {useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./chatbot.css"
+import ChatForm from './ChatForm';
+import ChatMessage from './ChatMessage';
+const Chatbot = () => {
+ const [chatHistory, setChatHistory] = useState([]);
 
-export default function Chatbot() {
-  const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Ahoj! Jak ti mohu pomoci?' }
-  ]);
-  const [input, setInput] = useState('');
-
-  const handleSend = async () => {
-    if (!input.trim()) return;
-
-    
-    const userMsg = { sender: 'user', text: input };
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
-
-    try {
-      
-      const res = await axios.post(
-  'https://api.openai.com/v1/chat/completions',
-  {
-    model: 'gpt-4.1',
-    messages: [{ role: 'user', content: input }]
-  },
-  {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`
+ const generateBotResponse = async (history) =>{
+  history = history.map(({role, text}) => ({role, role:[{text}]}))
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json','Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`},
+      body: JSON.stringify({
+      model: "gpt-4.1",
+      messages:history
+    }),
+ };
+ try{
+  const response = await fetch ("https://api.openai.com/v1/chat/completions", requestOptions);
+    const data = await response.json();
+    if(!response.ok){
+      throw new Error(data.error.message || 'Oops! Něco se pokazilo.');
     }
+console.log(data);
+ } catch(error){
+    console.log(error);
   }
-);
-      const botReply = res.data.reply;
-
-      
-      setMessages(prev => [...prev, { sender: 'bot', text: botReply }]);
-    } catch (err) {
-      console.error(err);
-      setMessages(prev => [...prev, { sender: 'bot', text: 'Oops, něco se pokazilo' }]);
-    }
-  };
+};
 
   return (
-    <div className="container py-4" style={{ maxWidth: 600 }}>
-      <div className="card">
-        <div className="card-header">PerpartezAI</div>
-        <div
-          className="card-body"
-          style={{ height: 400, overflowY: 'auto', background: '#f8f9fa' }}
-        >
-          {messages.map((m, i) => (
-            <div
-              key={i}
-              className={`d-flex mb-2 ${
-                m.sender === 'user' ? 'justify-content-end' : 'justify-content-start'
-              }`}
-            >
-              <div
-                className={`p-2 rounded ${
-                  m.sender === 'user' ? 'bg-primary text-white' : 'bg-light'
-                }`}
-                style={{ maxWidth: '75%' }}
-              >
-                {m.text}
-              </div>
-            </div>
-          ))}
+    <div className="container rounded chatbot-container">
+      <div className="row text-center chatbot-header">
+        <h1>PerpartezAI</h1>
         </div>
-        <div className="card-footer">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Zde napiš svůj příklad.."
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && handleSend()}
-            />
-            <button className="btn btn-primary" onClick={handleSend}>
-              Odeslat
-            </button>
-          </div>
+        {/* chatbot body */}
+     <div className="chatbot-body">
+        <div className="message-bot d-flex">
+          <p className="message-text">  Hello, how can i help you ?</p>
         </div>
-      </div>
+
+        {chatHistory.map((chat, index) => (
+          <ChatMessage key={index} chat={chat}/>
+        ))}
+        
+     </div>
+        <div className="chatbot-footer">
+      <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse}/>
     </div>
-  );
+
+    </div>
+  )
 }
+
+export default Chatbot;
