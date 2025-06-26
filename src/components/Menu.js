@@ -14,7 +14,7 @@ const Menu = () => {
     <Navbar expand="lg" className="bg-white">
       <Container>
         <Navbar.Brand href="/"><Logo/></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav ms-auto" className="ms-auto" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/home" className="menu">Domů</Nav.Link>
