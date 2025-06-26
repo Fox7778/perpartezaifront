@@ -21,6 +21,24 @@ const Home = () => {
             </Row>
         </Container>
 
+        <div className="justify-content-center text-center text1">
+            <img src="/ChatGPT Image Jun 26, 2025 at 07_05_25 PM-2.png" alt="ChatGPT Image" className="img-fluid" id="chatgpt"/>
+        </div>
+
+        <Container fluid className="bg-light">
+            <Row className="text-center text1">
+                <h1>Proč PerpartezAI?</h1>
+            </Row>
+        </Container>
+
+        <Container>
+            <Row>
+                <p>
+
+                </p>
+            </Row>
+        </Container>
+
         <Container fluid className="footer">
             <Row className="d-inline">
                 Kontakt:<a href="mailto:liskajakub612@outlook.com" id="mail">liskajakub612@outlook.com</a>
