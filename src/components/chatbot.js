@@ -43,7 +43,7 @@ export default function Chatbot() {
   return (
     <div className="container py-4" style={{ maxWidth: 600 }}>
       <div className="card">
-        <div className="card-header">AI Chatbot</div>
+        <div className="card-header">PerpartezAI</div>
         <div
           className="card-body"
           style={{ height: 400, overflowY: 'auto', background: '#f8f9fa' }}
@@ -77,7 +77,7 @@ export default function Chatbot() {
               onKeyDown={e => e.key === 'Enter' && handleSend()}
             />
             <button className="btn btn-primary" onClick={handleSend}>
-              Send
+              Odeslat
             </button>
           </div>
         </div>
