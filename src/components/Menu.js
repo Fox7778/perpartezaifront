@@ -16,10 +16,11 @@ const Menu = () => {
         <Navbar.Brand href="/"><Logo/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             <Nav.Link href="/home" className="menu">Domů</Nav.Link>
             <Nav.Link href="/aboutus" className="menu">O nás</Nav.Link>
              <Nav.Link href="/chatbot" className="menu">Chatbot</Nav.Link>
+             <Nav.Link href="/pricing" className="menu">blablabla</Nav.Link>
             <NavDropdown   title={
     <span style={{ color: '#038B6B', fontSize: '1.1rem' }}>
       Přihlásit se
