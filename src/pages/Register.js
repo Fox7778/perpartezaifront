@@ -2,12 +2,12 @@ import React,{useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const Register = () => {
     const [formData, setFormData] = useState({
-        name:"",
-        surname:"",
-        username:"",
-        email:"",
-        password:"",
-        birthdate:"",
+        name: "",
+        surname: "",
+        username: "",
+        email: "",
+        password: "",
+        birthdate: ""
     });
     const handleChange = (e) => {
     setFormData((prev) => ({
@@ -51,17 +51,19 @@ const Register = () => {
                             type="text" 
                             className="form-control"
                             id="name"
+                            name="name"
                             value={formData.name}
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="surename">Příjmení:</label>
+                        <label htmlFor="surname">Příjmení:</label>
                         <input
                             type="text" 
                             className="form-control"
-                            id="surename"
+                            id="surname"
+                            name="surname"
                             value={formData.surname}
                             onChange={handleChange}
                             required
@@ -73,6 +75,7 @@ const Register = () => {
                             type="text" 
                             className="form-control"
                             id="username"
+                            name="username"
                             value={formData.username}
                             onChange={handleChange}
                             required
@@ -84,6 +87,7 @@ const Register = () => {
                             type="email"
                             className="form-control"
                             id="email"
+                            name="email"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -95,6 +99,7 @@ const Register = () => {
                             type="date" 
                             className="form-control"
                             id="birthdate"
+                            name="birthdate"
                             value={formData.birthdate}
                             onChange={handleChange}
                             required
@@ -106,6 +111,7 @@ const Register = () => {
                             type="password"
                             className="form-control"
                             id="password"
+                            name="password"
                             value={formData.password}
                             onChange={handleChange}
                             required
