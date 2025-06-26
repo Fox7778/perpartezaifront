@@ -8,6 +8,7 @@ import Aboutus from './pages/Aboutus.js';
 import Register from './pages/Register.js';
 import Login from './pages/Login.js';
 import Nopage from './pages/Nopage.js';
+import AIpage from './pages/AIpage.js';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
      <Route path="/aboutus" element={<Aboutus/>}></Route>
      <Route path="/register" element={<Register/>}></Route>
      <Route path="/login" element={<Login/>}></Route>
+     <Route path="/chatbot" element={<AIpage/>}></Route>
      <Route path="*" element={<Nopage/>}></Route>
     </Routes>
     </>
