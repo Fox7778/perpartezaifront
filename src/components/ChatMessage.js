@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './chatbot.css';
 
-const ChatMessage = ({chat}) => {
+const ChatMessage = ({ chat }) => {
+  const isBot = chat.role === 'assistant';
   return (
-   <div className={`message ${chat.role === 'model' ? 'bot' : 'user' }-message-user justify-content-end d-flex message-bot d-flex`}>
+    <div className={`d-flex mb-2 ${isBot ? 'justify-content-start' : 'justify-content-end'}`}>
+      <div className={`message ${isBot ? 'message-bot' : 'message-user'}`}>
         <p className="message-text">{chat.text}</p>
-     </div>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default ChatMessage
+export default ChatMessage;
