@@ -18,7 +18,7 @@ const Register = () => {
  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/h2-console/login.do?jsessionid=cc265933cf2580d4540d1585c6968fc8', {
+      const response = await fetch('http://localhost:8080/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
