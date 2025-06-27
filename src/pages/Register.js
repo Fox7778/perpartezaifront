@@ -96,7 +96,7 @@ const Register = () => {
                     <div className="form-group">
                         <label htmlFor="yearOfBirth">Datum narození:</label>
                         <input
-                            type="date" 
+                            type="number" 
                             className="form-control"
                             id="yearOfBirth"
                             name="yearOfBirth"
