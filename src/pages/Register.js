@@ -7,7 +7,7 @@ const Register = () => {
         username: "",
         email: "",
         password: "",
-        birthdate: ""
+        yearOfBirth: ""
     });
     const handleChange = (e) => {
     setFormData((prev) => ({
@@ -94,13 +94,13 @@ const Register = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="birthdate">Datum narození:</label>
+                        <label htmlFor="yearOfBirth">Datum narození:</label>
                         <input
                             type="date" 
                             className="form-control"
-                            id="birthdate"
-                            name="birthdate"
-                            value={formData.birthdate}
+                            id="yearOfBirth"
+                            name="yearOfBirth"
+                            value={formData.yearOfBirth}
                             onChange={handleChange}
                             required
                         />
