@@ -44,6 +44,14 @@ const Home = () => {
             <img src="/ChatGPT Image Jun 26, 2025 at 07_05_25 PM-2.png" alt="ChatGPT Image" className="img-fluid" id="chatgpt"/>
         </div>
 
+        <Container fluid className="bg-light">
+                <Row className="text-center my-4">
+                    <Col>
+                        <Button variant="primary" size="lg">Ceník</Button>
+                    </Col>
+                </Row>
+            </Container>
+
         <Container fluid className="footer">
             <Row className="d-inline">
                 Kontakt:<a href="mailto:liskajakub612@outlook.com" id="mail">liskajakub612@outlook.com</a>
