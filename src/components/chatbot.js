@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Chatbot = () => {
   const [chatHistory, setChatHistory] = useState([]);
-  const OPENAI_API_KEY = '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'
+  const OPENAI_API_KEY = ''
 
   const generateBotResponse = async (history) => {
     // Prepare messages in correct format
@@ -43,7 +43,7 @@ const Chatbot = () => {
       console.error('OpenAI API error:', error);
       setChatHistory((prev) => [
         ...prev,
-        { role: 'assistant', text: '⚠️ Omlouvám se, něco se pokazilo.' }
+        { role: 'assistant', text: 'GG to se pokazilo' }
       ]);
     }
   };
