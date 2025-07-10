@@ -4,7 +4,7 @@ import './chatbot.css';
 import ChatForm from './ChatForm';
 import ChatMessage from './ChatMessage';
 import axios from 'axios';
-
+//precist si co je .env
 const Chatbot = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const OPENAI_API_KEY = ''
